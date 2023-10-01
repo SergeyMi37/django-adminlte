@@ -58,6 +58,7 @@ $ cd django-adminlte
 ```bash
 $ virtualenv env
 $ source env/bin/activate
+$ source env/Scripts/activate # for Windows
 $ pip install -r requirements.txt
 ```
 
