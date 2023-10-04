@@ -36,6 +36,17 @@ ALLOWED_HOSTS = ['*']
 # Add here your deployment HOSTS
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:5085']
 
+#
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
+
+#CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ALLOW_CREDENTIALS = True
+
+
 #Render Context
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
@@ -53,6 +64,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "home",
+    # app msw params
+    'appmsw',
 ]
 
 MIDDLEWARE = [

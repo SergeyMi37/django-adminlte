@@ -10,7 +10,7 @@ wget --continue https://github.com/intersystems-community/iris-driver-distributi
 
 # pip install apptools/api/intersystems_irispython-3.2.0-py3-none-any.whl
 python -m pip install --upgrade pip
-python manage.py makemigrations #<name>
+python manage.py makemigrations #<name> ex. appmsw
 python manage.py migrate
 python manage.py createsuperuser --noinput --username adm --email adm@localhost.com
 # python run_polling.py
