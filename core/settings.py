@@ -39,8 +39,7 @@ CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:5085']
 _ = os.environ.get('CSRF_TRUSTED_ORIGINS')
 if _:
     CSRF_TRUSTED_ORIGINS.append(_)
-
-print(_,'---',CSRF_TRUSTED_ORIGINS)
+#print(_,'---',CSRF_TRUSTED_ORIGINS)
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True

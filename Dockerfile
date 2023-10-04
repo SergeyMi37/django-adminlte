@@ -13,6 +13,7 @@ COPY . .
 
 # running migrations
 RUN python manage.py migrate
+RUN python manage.py createsuperuser --noinput --username adm --email adm@mswhost.com
 
 # gunicorn
 CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
