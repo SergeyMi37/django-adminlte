@@ -36,15 +36,14 @@ ALLOWED_HOSTS = ['*']
 # Add here your deployment HOSTS
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:5085']
 
-#
-INTERNAL_IPS = [
-    # ...
-    '127.0.0.1',
-    # ...
-]
+_ = os.environ.get('CSRF_TRUSTED_ORIGINS')
+if _:
+    CSRF_TRUSTED_ORIGINS.append(_)
 
-#CORS_ORIGIN_ALLOW_ALL = True
-#CORS_ALLOW_CREDENTIALS = True
+print(_,'---',CSRF_TRUSTED_ORIGINS)
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 #Render Context
