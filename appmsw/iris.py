@@ -48,7 +48,7 @@ def classMethod(request,_class,_method, _arg="",iris_url=""):
     except Exception as err:
         print("---err-classMethod--------",err)
         _val = f'{{"status":"Error FAIL Iris connection {err} for {iris_url}"}}'
-    print('iris-val=====',_val, str(o.path.split("/")[1]))        
+    #print('iris-val=====',_val, str(o.path.split("/")[1]))        
     return _val
 
 def classMethodFooter(request,url=_url):
