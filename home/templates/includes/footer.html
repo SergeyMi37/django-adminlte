@@ -2,7 +2,12 @@
 
 <footer class="main-footer">
   <b>&copy; {{ appmsw.logofooter|default:"MSW" }} {% now "Y" %}. </b>
-   ---
+  
+  {% if appmsw.iris_footer.status != 'ok' %} 
+    <span style="color:red"> {{appmsw.iris_footer.status}} </span>
+  {% else %}   
+    {{appmsw.iris_footer.version}}
+  {% endif %}
   <div class="float-right d-none d-sm-inline-block">
     <a title='Version 3.2.0' target="_blank" href="https://appseed.us"><strong>&copy; AdminLTE.io</strong></a>
   </div>

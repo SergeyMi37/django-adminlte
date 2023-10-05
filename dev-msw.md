@@ -8,7 +8,7 @@ pip install -r requirements.txt
 
 wget --continue https://github.com/intersystems-community/iris-driver-distribution/raw/main/DB-API/intersystems_irispython-3.2.0-py3-none-any.whl &&     pip install intersystems_irispython-3.2.0-py3-none-any.whl &&     rm intersystems_irispython-3.2.0-py3-none-any.whl
 
-# pip install apptools/api/intersystems_irispython-3.2.0-py3-none-any.whl
+# pip install appmsw/api/intersystems_irispython-3.2.0-py3-none-any.whl
 python -m pip install --upgrade pip
 python manage.py makemigrations #<name> ex. appmsw
 python manage.py migrate
