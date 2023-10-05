@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTEbase | {% block title %}{% endblock title %}</title>
+  <title>{% block title %}{{ appmsw.logotitle|default:"MSW" }}{% endblock title %}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -25,8 +25,8 @@
     {% block preloader %}
       <!-- Preloader -->
       <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
-      </div>
+      <img class="animation__shake" src="{% static 'dist/img/loading.gif' %}" alt="AdminLTELogo" height="60" width="60">
+    </div>
     {% endblock preloader %}
 
     {% block header %}

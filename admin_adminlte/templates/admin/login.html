@@ -8,7 +8,7 @@
 {% block content %}
 <div class="login-box">
   <div class="login-logo">
-    <a href="{% url 'dashboardv2' %}"><b>Admin</b>LTE</a>
+    <a href="{% url 'dashboardv2' %}">{{ appmsw.logotitle|default:"MSW" }}</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

@@ -1,7 +1,7 @@
 {% load static %}
 
 <footer class="main-footer">
-  <b>&copy; MSW {% now "Y" %}. </b>
+  <b>&copy; {{ appmsw.logofooter|default:"MSW" }} {% now "Y" %}. </b>
    ---
   <div class="float-right d-none d-sm-inline-block">
     <a title='Version 3.2.0' target="_blank" href="https://appseed.us"><strong>&copy; AdminLTE.io</strong></a>

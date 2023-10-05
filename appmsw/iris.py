@@ -1,7 +1,7 @@
 import irisnative
 import os
 from django.conf import settings
-from dtb.settings import DEBUG
+from core.settings import DEBUG
 import json
 # For Docker
 #ISC_Host=iris
@@ -15,10 +15,10 @@ ISC_Username = os.getenv("ISC_Username")
 ISC_Password = os.getenv("ISC_Password")
 ISC_Namespace = os.getenv("ISC_Namespace")
 
-from telegram import Bot
-from dtb.settings import TELEGRAM_TOKEN
-bot_info = Bot(TELEGRAM_TOKEN).get_me()
-bot_link = f"https://t.me/{bot_info['username']}"
+#from telegram import Bot
+#from core.settings import TELEGRAM_TOKEN
+#bot_info = Bot(TELEGRAM_TOKEN).get_me()
+#bot_link = f"https://t.me/{bot_info['username']}"
 
 def classMethod(request,_class,_method, _arg=""):
     try:
@@ -27,7 +27,7 @@ def classMethod(request,_class,_method, _arg=""):
             "irishost":ISC_Host,
             "irisport":str(ISC_Port),
             "arg":_arg,
-            "bot_link":bot_link,
+          #  "bot_link":bot_link,
         }
         if request:
             _args["user"]= str(request.user)

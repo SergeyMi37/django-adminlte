@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
-{% block title %} Dashboard 2 {% endblock title %}
+{% block title %}{{ appmsw.logotitle|default:"MSW" }} Dashboard 2 {% endblock title %}
 
 {% block bodyclass %} hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed {% endblock bodyclass %}
 
