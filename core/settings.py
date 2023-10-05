@@ -34,7 +34,7 @@ DEBUG = 'RENDER' not in os.environ
 ALLOWED_HOSTS = ['*']
 
 # Add here your deployment HOSTS
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'https://adminlte-django.demo.community.intersystems.com']
 
 _ = os.environ.get('CSRF_TRUSTED_ORIGINS')
 if _:
