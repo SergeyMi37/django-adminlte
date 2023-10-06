@@ -6,7 +6,7 @@ from appmsw.utl import get_env_appmsw
 
 def index(request):
     context = {
-        "appmsw": get_env_appmsw(),
+        "appmsw": get_env_appmsw(request),
     }
     # Page from the theme 
     return render(request, 'pages/index.html',context)

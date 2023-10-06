@@ -1,7 +1,17 @@
 from django import template
 register = template.Library()
+from appmsw.utl import get_env_appmsw
 
-# <p>Instance: {% iris_piece iris_portal.instance delimiter="*" num=1 %}, dir: {% iris_piece iris_portal.instance delimiter="*" num=0 %}
+# Create your views here.
+@register.simple_tag
+def appmsw_tags_get_env(name=""):
+    _ = get_env_appmsw("",name)
+    #if not name:
+    #    return _.get(name,"???")
+    # Page from the theme 
+    return _
+
+# <p>Instance: {% piece iris_portal.instance delimiter="*" num=1 %}, dir: {% piece iris_portal.instance delimiter="*" num=0 %}
 @register.simple_tag
 def piece(value,  *args, **kwargs):
     if not value: return ""

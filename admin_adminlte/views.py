@@ -21,7 +21,7 @@ def register(request):
   
   context = {
     'form': form,
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
   }
   return render(request, 'accounts/register.html', context)
   
@@ -38,7 +38,7 @@ def register_v1(request):
     form = RegistrationForm()
   
   context = {'form': form,
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
   }
   return render(request, 'pages/examples/register.html', context)
 
@@ -55,7 +55,7 @@ def register_v2(request):
     form = RegistrationForm()
   
   context = {'form': form,
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
   }
   return render(request, 'pages/examples/register-v2.html', context)
 
@@ -111,7 +111,7 @@ def user_logout_view(request):
 def index(request):
   context = {
     'parent': 'dashboard',
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
     'segment': 'dashboardv1'
   }
   return render(request, 'pages/index.html', context)
@@ -119,7 +119,7 @@ def index(request):
 def index2(request):
   context = {
     'parent': 'dashboard',
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
     'segment': 'dashboardv2'
   }
   return render(request, 'pages/index2.html', context)
@@ -127,7 +127,7 @@ def index2(request):
 def index3(request):
   context = {
     'parent': 'dashboard',
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
     'segment': 'dashboardv3'
   }
   return render(request, 'pages/index3.html', context)
@@ -135,7 +135,7 @@ def index3(request):
 def widgets(request):
   context = {
     'parent': '',
-    "appmsw": get_env_appmsw(),
+    "appmsw": get_env_appmsw(request),
     'segment': 'widgets'
   }
   return render(request, 'pages/widgets.html', context)
@@ -145,7 +145,7 @@ def widgets(request):
 def examples_calendar(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'calendar'
   }
   return render(request, 'pages/calendar.html', context)
@@ -153,7 +153,7 @@ def examples_calendar(request):
 def examples_gallery(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'gallery'
   }
   return render(request, 'pages/gallery.html', context)
@@ -161,7 +161,7 @@ def examples_gallery(request):
 def examples_kanban(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'kanban_board'
   }
   return render(request, 'pages/kanban.html', context)
@@ -171,7 +171,7 @@ def examples_kanban(request):
 def mailbox_inbox(request):
   context = {
     'parent': 'mailbox',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'inbox'
   }
   return render(request, 'pages/mailbox/mailbox.html', context)
@@ -179,7 +179,7 @@ def mailbox_inbox(request):
 def mailbox_compose(request):
   context = {
     'parent': 'mailbox',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'compose'
   }
   return render(request, 'pages/mailbox/compose.html', context)
@@ -187,7 +187,7 @@ def mailbox_compose(request):
 def mailbox_read_mail(request):
   context = {
     'parent': 'mailbox',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'read_mail'
   }
   return render(request, 'pages/mailbox/read-mail.html', context)
@@ -197,7 +197,7 @@ def mailbox_read_mail(request):
 def examples_invoice(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'invoice'
   }
   return render(request, 'pages/examples/invoice.html', context)
@@ -205,7 +205,7 @@ def examples_invoice(request):
 def invoice_print(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'invoice_print'
   }
   return render(request, 'pages/examples/invoice-print.html', context)
@@ -213,7 +213,7 @@ def invoice_print(request):
 def examples_profile(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'profile'
   }
   return render(request, 'pages/examples/profile.html', context)
@@ -221,7 +221,7 @@ def examples_profile(request):
 def examples_e_commerce(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'ecommerce'
   }
   return render(request, 'pages/examples/e-commerce.html', context)
@@ -229,7 +229,7 @@ def examples_e_commerce(request):
 def examples_projects(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'projects'
   }
   return render(request, 'pages/examples/projects.html', context)
@@ -237,7 +237,7 @@ def examples_projects(request):
 def examples_project_add(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'project_add'
   }
   return render(request, 'pages/examples/project-add.html', context)
@@ -245,7 +245,7 @@ def examples_project_add(request):
 def examples_project_edit(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'project_edit'
   }
   return render(request, 'pages/examples/project-edit.html', context)
@@ -253,7 +253,7 @@ def examples_project_edit(request):
 def examples_project_detail(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'project_detail'
   }
   return render(request, 'pages/examples/project-detail.html', context)
@@ -261,7 +261,7 @@ def examples_project_detail(request):
 def examples_contacts(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'contacts'
   }
   return render(request, 'pages/examples/contacts.html', context)
@@ -269,7 +269,7 @@ def examples_contacts(request):
 def examples_faq(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'faq'
   }
   return render(request, 'pages/examples/faq.html', context)
@@ -277,7 +277,7 @@ def examples_faq(request):
 def examples_contact_us(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'contact_us'
   }
   return render(request, 'pages/examples/contact-us.html', context)
@@ -342,7 +342,7 @@ def examples_contact_us(request):
 def lockscreen(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': ''
   }
   return render(request, 'pages/examples/lockscreen.html', context)
@@ -350,7 +350,7 @@ def lockscreen(request):
 def legacy_user_menu(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'legacy_user'
   }
   return render(request, 'pages/examples/legacy-user-menu.html', context)
@@ -358,7 +358,7 @@ def legacy_user_menu(request):
 def language_menu(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'legacy_menu'
   }
   return render(request, 'pages/examples/language-menu.html', context)
@@ -366,7 +366,7 @@ def language_menu(request):
 def error_404(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'error_404'
   }
   return render(request, 'pages/examples/404.html', context)
@@ -374,7 +374,7 @@ def error_404(request):
 def error_500(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'error_500'
   }
   return render(request, 'pages/examples/500.html', context)
@@ -382,7 +382,7 @@ def error_500(request):
 def pace(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'pace'
   }
   return render(request, 'pages/examples/pace.html', context)
@@ -390,7 +390,7 @@ def pace(request):
 def blank_page(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'blank_page'
   }
   return render(request, 'pages/examples/blank.html', context)
@@ -398,7 +398,7 @@ def blank_page(request):
 def starter_page(request):
   context = {
     'parent': 'extra',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'starter_page'
   }
   return render(request, 'pages/examples/starter.html', context)
@@ -408,7 +408,7 @@ def starter_page(request):
 def search_simple(request):
   context = {
     'parent': 'search',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'search_simple'
   }
   return render(request, 'pages/search/simple.html', context)
@@ -416,7 +416,7 @@ def search_simple(request):
 def search_enhanced(request):
   context = {
     'parent': 'search',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'search_enhanced'
   }
   return render(request, 'pages/search/enhanced.html', context)
@@ -424,7 +424,7 @@ def search_enhanced(request):
 def simple_results(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': ''
   }
   return render(request, 'pages/search/simple-results.html', context)
@@ -432,7 +432,7 @@ def simple_results(request):
 def enhanced_results(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': ''
   }
   return render(request, 'pages/search/enhanced-results.html', context)
@@ -442,7 +442,7 @@ def enhanced_results(request):
 def iframe(request):
   context = {
     'parent': '',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': ''
   }
   return render(request, 'pages/search/iframe.html', context)
@@ -452,7 +452,7 @@ def iframe(request):
 def chartjs(request):
   context = {
     'parent': 'charts',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'chartjs'
   }
   return render(request, 'pages/charts/chartjs.html', context)
@@ -460,7 +460,7 @@ def chartjs(request):
 def flot(request):
   context = {
     'parent': 'charts',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'flot'
   }
   return render(request, 'pages/charts/flot.html', context)
@@ -468,7 +468,7 @@ def flot(request):
 def inline(request):
   context = {
     'parent': 'charts',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'inline'
   }
   return render(request, 'pages/charts/inline.html', context)
@@ -476,7 +476,7 @@ def inline(request):
 def uplot(request):
   context = {
     'parent': 'charts',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'uplot'
   }
   return render(request, 'pages/charts/uplot.html', context)
@@ -484,7 +484,7 @@ def uplot(request):
 def profile(request):
   context = {
     'parent': 'pages',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'profile'
   }
   return render(request, 'pages/examples/profile.html', context)
@@ -493,7 +493,7 @@ def profile(request):
 def top_navigation(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'top_navigation'
   }
   return render(request, 'pages/layout/top-nav.html', context)
@@ -501,7 +501,7 @@ def top_navigation(request):
 def top_nav_sidebar(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'top navigation with sidebar'
   }
   return render(request, 'pages/layout/top-nav-sidebar.html', context)
@@ -509,7 +509,7 @@ def top_nav_sidebar(request):
 def boxed(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'boxed_layout'
   }
   return render(request, 'pages/layout/boxed.html', context)
@@ -517,7 +517,7 @@ def boxed(request):
 def fixed_sidebar(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'fixed_layout'
   }
   return render(request, 'pages/layout/fixed-sidebar.html', context)
@@ -525,7 +525,7 @@ def fixed_sidebar(request):
 def fixed_sidebar_custom(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'layout_cuastom'
   }
   return render(request, 'pages/layout/fixed-sidebar-custom.html', context)
@@ -533,7 +533,7 @@ def fixed_sidebar_custom(request):
 def fixed_topnav(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'fixed_topNav'
   }
   return render(request, 'pages/layout/fixed-topnav.html', context)
@@ -541,7 +541,7 @@ def fixed_topnav(request):
 def fixed_footer(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'fixed_footer'
   }
   return render(request, 'pages/layout/fixed-footer.html', context)
@@ -549,7 +549,7 @@ def fixed_footer(request):
 def collapsed_sidebar(request):
   context = {
     'parent': 'layout',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'collapsed_sidebar'
   }
   return render(request, 'pages/layout/collapsed-sidebar.html', context)
@@ -559,7 +559,7 @@ def collapsed_sidebar(request):
 def ui_general(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'general'
   }
   return render(request, 'pages/UI/general.html', context)
@@ -567,7 +567,7 @@ def ui_general(request):
 def ui_icons(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'icons'
   }
   return render(request, 'pages/UI/icons.html', context)
@@ -575,7 +575,7 @@ def ui_icons(request):
 def ui_buttons(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'buttons'
   }
   return render(request, 'pages/UI/buttons.html', context)
@@ -583,7 +583,7 @@ def ui_buttons(request):
 def ui_sliders(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'sliders'
   }
   return render(request, 'pages/UI/sliders.html', context)
@@ -591,7 +591,7 @@ def ui_sliders(request):
 def ui_modals_alerts(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'modals_alerts'
   }
   return render(request, 'pages/UI/modals.html', context)
@@ -599,7 +599,7 @@ def ui_modals_alerts(request):
 def ui_navbar_tabs(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'navbar_tabs'
   }
   return render(request, 'pages/UI/navbar.html', context)
@@ -607,7 +607,7 @@ def ui_navbar_tabs(request):
 def ui_timeline(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'timeline'
   }
   return render(request, 'pages/UI/timeline.html', context)
@@ -615,7 +615,7 @@ def ui_timeline(request):
 def ui_ribbons(request):
   context = {
     'parent': 'ui',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'ribbons'
   }
   return render(request, 'pages/UI/ribbons.html', context)
@@ -625,7 +625,7 @@ def ui_ribbons(request):
 def form_general(request):
   context = {
     'parent': 'forms',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'form_general'
   }
   return render(request, 'pages/forms/general.html', context)
@@ -633,7 +633,7 @@ def form_general(request):
 def form_advanced(request):
   context = {
     'parent': 'forms',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'advanced_form'
   }
   return render(request, 'pages/forms/advanced.html', context)
@@ -641,7 +641,7 @@ def form_advanced(request):
 def form_editors(request):
   context = {
     'parent': 'forms',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'text_editors'
   }
   return render(request, 'pages/forms/editors.html', context)
@@ -649,7 +649,7 @@ def form_editors(request):
 def form_validation(request):
   context = {
     'parent': 'forms',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'validation'
   }
   return render(request, 'pages/forms/validation.html', context)
@@ -659,7 +659,7 @@ def form_validation(request):
 def table_simple(request):
   context = {
     'parent': 'tables',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'simple_table'
   }
   return render(request, 'pages/tables/simple.html', context)
@@ -667,7 +667,7 @@ def table_simple(request):
 def table_data(request):
   context = {
     'parent': 'tables',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'data_table'
   }
   return render(request, 'pages/tables/data.html', context)
@@ -675,7 +675,7 @@ def table_data(request):
 def table_jsgrid(request):
   context = {
     'parent': 'tables',
-    'appmsw': get_env_appmsw(),
+    'appmsw': get_env_appmsw(request),
     'segment': 'jsGrid'
   }
   return render(request, 'pages/tables/jsgrid.html', context)
