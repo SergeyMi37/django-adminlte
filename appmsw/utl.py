@@ -21,11 +21,11 @@ def get_env_appmsw(request,name=""):
     
     _url=os.environ.get("APPMSW_IRIS_URL")
     if _url:
-       _i= json.loads(classMethodFooter(request,url=_url))
-    if name=="iris_footer":
-        return _i
-    if name=="iris_instance":
-        return _i['instance'].split("*")[1]
-    if name=="iris_host":
-        return _i['host']
+        _i = json.loads(classMethodFooter(request,url=_url))
+        if name=="iris_footer":
+            return _i
+        elif name=="iris_instance":
+            return _i['instance'].split("*")[1]
+        elif name=="iris_host":
+            return _i['host']
     return ""
