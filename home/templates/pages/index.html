@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
+{% load static appmsw_tags %}
 
-{% block title %}{{ appmsw.logotitle|default:"MSW" }}{% endblock title %}
+{% block title %}{% appmsw_tags_get_env 'title' %}{% endblock title %}
 
 {% block extrastyle %}
 

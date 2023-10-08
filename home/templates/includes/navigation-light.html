@@ -87,7 +87,18 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      
+      <!-- Logon- Logout -->
+      {% if request.user.is_authenticated %}
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+        </li>
+      {% else %}
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+        </li>
+      {% endif %}
+
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>

@@ -3,11 +3,11 @@
 {% block title %} Registration Page {% endblock title %}
 
 {% block bodyclass %} register-page {% endblock bodyclass %}
-
+{% load appmsw_tags %}
 {% block content %}
 <div class="register-box">
   <div class="register-logo">
-    <a href="/"><b>Admin</b>LTE</a>
+    <a href="/">{% appmsw_tags_get_env 'title' %}</a>
   </div>
 
   <div class="card">

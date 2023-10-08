@@ -4,10 +4,12 @@
 
 {% block bodyclass %} login-page {% endblock bodyclass %}
 
+{% load appmsw_tags %}
+
 {% block content %}
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>Admin</b>LTE</a>
+    <a href="/">{% appmsw_tags_get_env 'title' %}</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
