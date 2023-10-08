@@ -1,17 +1,8 @@
 {% load static appmsw_tags %}
 
 <footer class="main-footer">
-  <b>&copy; {{ appmsw.logofooter|default:"MSW" }} {% now "Y" %}. </b>
-  
-  {% if appmsw.iris_footer.status != 'ok' %} 
-    <span style="color:red"> {{appmsw.iris_footer.status}} </span>
-  {% else %}   
-     {% for enum in appmsw.iris_footer.apps %}
-      <span class="d-sm-inline-block"> |  
-      <a target="_blank" href="{{ enum.url }}">{{ enum.name }}</a> 
-      </span>
-     {% endfor %}
-    {% endif %}
+  <b>&copy; {% appmsw_tags_get_env "footer" %} {% now "Y" %}. </b>
+
    <b> <span title="Instance" >{% appmsw_tags_get_env "iris_instance" %}</span> - <span title="Host" >{% appmsw_tags_get_env "iris_host" %}</span></b>  
    <div class="float-right d-none d-sm-inline-block">
     <a title='Version 3.2.0' target="_blank" href="https://appseed.us"><strong>&copy; AdminLTE.io</strong></a>

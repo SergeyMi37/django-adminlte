@@ -60,7 +60,7 @@
         </div>
       </li>
   
-      <!-- Notifications Dropdown Menu -->
+      <!-- Notifications Dropdown Menu 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -87,15 +87,18 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
+      -->
       <!-- Logon- Logout -->
       {% if request.user.is_authenticated %}
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{% url 'logout' %}" class="nav-link">Logout</a>
-        </li>
-      {% else %}
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{% url 'login' %}" class="nav-link">Sign In</a>
-        </li>
+        <li class="nav-item">
+          <a class="nav-link" title="Logout" href="{% url 'logout' %}" role="button">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" title="Login" href="{% url 'login' %}" role="button">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
       {% endif %}
 
 
