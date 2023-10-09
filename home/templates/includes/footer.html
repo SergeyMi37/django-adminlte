@@ -1,9 +1,14 @@
 {% load static appmsw_tags %}
 
 <footer class="main-footer">
-  <b>&copy; {% appmsw_tags_get_env "footer" %} {% now "Y" %}. </b>
 
-   <b> <span title="Instance" >{% appmsw_tags_get_env "iris_instance" %}</span> - <span title="Host" >{% appmsw_tags_get_env "iris_host" %}</span></b>  
+  <b>&copy; {% appmsw_tags_get_env "footer" %} {% now "Y" %}. </b>
+  <!--{% appmsw_tags_get_env "param" "IRIS" "json" "APPMSW_LOGO_TITLE" %}-->
+   
+  {% autoescape off %}
+   {% appmsw_tags_get_env "iris_footer" %}
+  {% endautoescape %}
+   
    <div class="float-right d-none d-sm-inline-block">
     <a title='Version 3.2.0' target="_blank" href="https://appseed.us"><strong>&copy; AdminLTE.io</strong></a>
   </div>

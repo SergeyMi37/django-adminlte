@@ -4,8 +4,8 @@ from appmsw.utl import get_env_appmsw
 
 # Create your views here.
 @register.simple_tag
-def appmsw_tags_get_env(name=""):
-    _ = get_env_appmsw("",name)
+def appmsw_tags_get_env(name="", fieldname="",namereturn="",jsonkey=""):
+    _ = get_env_appmsw("",name,fieldname,namereturn,jsonkey)
     #if not name:
     #    return _.get(name,"???")
     # Page from the theme 
