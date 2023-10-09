@@ -32,13 +32,9 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
     if  _["APPMSW_PARAM_NANE"]: 
         for it in ["APPMSW_LOGO_IMG","APPMSW_LOGO_TITLE","APPMSW_LOGO_FOOTER","APPMSW_IRIS_URL"]:
             _it = get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key=it)
-            print(it,_it)
+            #print(it,_it)
             if _it:  _[it]=_it
-        #_["APPMSW_LOGO_IMG"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_IMG")
-        #_["APPMSW_LOGO_TITLE"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_TITLE")
-        #_["APPMSW_LOGO_FOOTER"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_FOOTER")
-        #_["APPMSW_IRIS_URL"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_IRIS_URL")
-
+ 
     if name=="": 
         return _
     elif name=="param":
@@ -53,7 +49,7 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
     
     if _["APPMSW_IRIS_URL"]!="None":
         _i = json.loads(classMethodFooter(request,url=_["APPMSW_IRIS_URL"]))
-        #print(_i)
+        #print("===",_["APPMSW_IRIS_URL"],_i)
         try:
             if _i['status'] !='ok':
                 return _i['status']
