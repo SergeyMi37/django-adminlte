@@ -15,7 +15,7 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
         _e=getattr(e, par_name_return)
         if par_name_return=="json" and json_key:
             _j=json.loads(_e)
-            _e=_j.get(json_key,"NoValue for key:"+json_key)
+            _e=_j.get(json_key,"")
     #print(param)
     return _e
 
@@ -30,10 +30,14 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
  
     # Variables from the Parameter object will override those explicitly specified in the .env
     if  _["APPMSW_PARAM_NANE"]: 
-        _["APPMSW_LOGO_IMG"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_IMG")
-        _["APPMSW_LOGO_TITLE"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_TITLE")
-        _["APPMSW_LOGO_FOOTER"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_FOOTER")
-        _["APPMSW_IRIS_URL"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_IRIS_URL")
+        for it in ["APPMSW_LOGO_IMG","APPMSW_LOGO_TITLE","APPMSW_LOGO_FOOTER","APPMSW_IRIS_URL"]:
+            _it = get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key=it)
+            print(it,_it)
+            if _it:  _[it]=_it
+        #_["APPMSW_LOGO_IMG"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_IMG")
+        #_["APPMSW_LOGO_TITLE"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_TITLE")
+        #_["APPMSW_LOGO_FOOTER"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_LOGO_FOOTER")
+        #_["APPMSW_IRIS_URL"]= get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key="APPMSW_IRIS_URL")
 
     if name=="": 
         return _
