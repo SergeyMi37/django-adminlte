@@ -53,7 +53,7 @@ def classMethod(request,_class,_method, _arg="",iris_url=""):
 
 def classMethodFooter(request,url=_url):
     try:
-        _val=classMethod(request,"apptools.core.telebot", "GetFooter", "",iris_url=url)
+        _val=classMethod(request,"apptools.core.django", "GetFooter", "",iris_url=url)
         #if DEBUG:print('---return-classMethod Footer-----',_val)
     except Exception as err:
         if DEBUG:print("---err-footer--------",err)
@@ -62,7 +62,7 @@ def classMethodFooter(request,url=_url):
 
 def classMethodPortal(request,mp_list="",url=_url):
     try:
-        _val=classMethod(request,"apptools.core.telebot", "GetPortal",mp_list,iris_url=url)
+        _val=classMethod(request,"apptools.core.django", "GetPortal",mp_list,iris_url=url)
         if DEBUG:print('---return-classMethod Portal-----',_val)
     except Exception as err:
         if DEBUG:print("---err-portal--------",err)
@@ -75,7 +75,7 @@ Python 3.8.10 (default, Jun 23 2021, 15:19:53)
 >>> import irisnative
 >>> connection = irisnative.createConnection("a3011d1fe174", int(1972), "USER", "superuser", "SYS")
 >>> appiris = irisnative.createIris(connection)
->>> nodeVal = str(appiris.classMethodValue("apptools.core.telebot", "TS", ""))
+>>> nodeVal = str(appiris.classMethodValue("apptools.core.django", "TS", ""))
 >>> print(nodeVal)
 >>>
     '''
