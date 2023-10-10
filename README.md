@@ -214,3 +214,28 @@ This design is a pixel-perfect [Bootstrap 5](https://www.admin-dashboards.com/bo
 
 ---
 [Django AdminLTE](https://appseed.us/product/adminlte/django/) - Open-Source **Django** starter provided by **[AppSeed](https://appseed.us/)**
+
+## Using a template to edit models
+
+1. Create a new repo from a [template](https://github.com/SergeyMi37/django-adminlte) 
+2. Add a directory of Django models [for example locallibrary](https://github.com/SergeyMi37/django-locallibrary-tutorial) 
+3. Add this directory to core.settings.py in
+INSTALLED_APPS = [
+  ...
+    #locallibrary
+     "catalog",
+]
+4. Add an icon for the side menu to the CatalogConfig class
+catalog.apps.py file
+class CatalogConfig(AppConfig):
+     default_auto_field = 'django.db.models.BigAutoField'
+     name = 'catalog'
+     icon = 'fas fa-book'
+5. create a .env file by copying from env.sample
+#APPMSW_PARAM_NANE=Basic
+APPMSW_LOGO_TITLE=AppMsW
+#apptools img
+APPMSW_LOGO_IMG=data:image/png;base64,iVB...
+APPMSW_LOGO_FOOTER=FooterAppMsW
+6. To deploy in Docker on nginx, you need to add a variable to .env
+CSRF_TRUSTED_ORIGINS=http://192.168.1.66:5085

@@ -47,7 +47,7 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
     elif name=="img" and _["APPMSW_LOGO_IMG"]!="None":
         return _.get("APPMSW_LOGO_IMG","undef")
     
-    if _["APPMSW_IRIS_URL"]!="None":
+    if _["APPMSW_IRIS_URL"]:
         _i = json.loads(classMethodFooter(request,url=_["APPMSW_IRIS_URL"]))
         #print("===",_["APPMSW_IRIS_URL"],_i)
         try:
