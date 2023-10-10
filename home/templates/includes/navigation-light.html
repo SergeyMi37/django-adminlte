@@ -1,5 +1,5 @@
   {% load static %}
-  
+  {% load i18n %}
   <!-- Navbar L-->
   <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
@@ -100,7 +100,22 @@
             <i class="fas fa-sign-in-alt"></i>
           </a>
       {% endif %}
-
+      <li class="nav-item">
+        <a class="nav-link" href="#" role="button">
+     <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+          <select name="lang" onchange="document.getElementById('appSubmit2').click();">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                  <option title="{{ language.name_local }} " value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                      {{ language.code }}
+                  </option>
+              {% endfor %}
+          </select>
+          <input id="appSubmit2" type="submit" style="display: none" value="{% trans 'Change' %}" />
+      </form>
+      </a></li>
 
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">

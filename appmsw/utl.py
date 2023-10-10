@@ -21,34 +21,34 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
 
 @lru_cache()
 def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
-    _={}
-    _["APPMSW_PARAM_NANE"]=os.environ.get("APPMSW_PARAM_NANE")
-    _["APPMSW_LOGO_TITLE"]=os.environ.get("APPMSW_LOGO_TITLE")
-    _["APPMSW_LOGO_FOOTER"]=os.environ.get("APPMSW_LOGO_FOOTER")
-    _["APPMSW_LOGO_IMG"]=str(os.environ.get("APPMSW_LOGO_IMG"))
-    _["APPMSW_IRIS_URL"]=os.environ.get("APPMSW_IRIS_URL")
+    _e={}
+    _e["APPMSW_PARAM_NANE"]=os.environ.get("APPMSW_PARAM_NANE")
+    _e["APPMSW_LOGO_TITLE"]=os.environ.get("APPMSW_LOGO_TITLE")
+    _e["APPMSW_LOGO_FOOTER"]=os.environ.get("APPMSW_LOGO_FOOTER")
+    _e["APPMSW_LOGO_IMG"]=str(os.environ.get("APPMSW_LOGO_IMG"))
+    _e["APPMSW_IRIS_URL"]=os.environ.get("APPMSW_IRIS_URL")
  
     # Variables from the Parameter object will override those explicitly specified in the .env
-    if  _["APPMSW_PARAM_NANE"]: 
+    if  _e["APPMSW_PARAM_NANE"]: 
         for it in ["APPMSW_LOGO_IMG","APPMSW_LOGO_TITLE","APPMSW_LOGO_FOOTER","APPMSW_IRIS_URL"]:
-            _it = get_param(par_name=_["APPMSW_PARAM_NANE"],par_name_return="json",json_key=it)
+            _it = get_param(par_name=_e["APPMSW_PARAM_NANE"],par_name_return="json",json_key=it)
             #print(it,_it)
-            if _it:  _[it]=_it
+            if _it:  _e[it]=_it
  
     if name=="": 
-        return _
+        return _e
     elif name=="param":
         if fieldname:
             return get_param(par_name=fieldname,par_name_return=name_return,json_key=jsonkey)
     elif name=="title":
-        return _.get("APPMSW_LOGO_TITLE","undef")
+        return _e.get("APPMSW_LOGO_TITLE","undef")
     elif name=="footer":
-        return _.get("APPMSW_LOGO_FOOTER","undef")
-    elif name=="img" and _["APPMSW_LOGO_IMG"]!="None":
-        return _.get("APPMSW_LOGO_IMG","undef")
+        return _e.get("APPMSW_LOGO_FOOTER","undef")
+    elif name=="img" and _e["APPMSW_LOGO_IMG"]!="None":
+        return _e.get("APPMSW_LOGO_IMG","undef")
     
-    if _["APPMSW_IRIS_URL"]:
-        _i = json.loads(classMethodFooter(request,url=_["APPMSW_IRIS_URL"]))
+    if _e["APPMSW_IRIS_URL"]:
+        _i = json.loads(classMethodFooter(request,url=_e["APPMSW_IRIS_URL"]))
         #print("===",_["APPMSW_IRIS_URL"],_i)
         try:
             if _i['status'] !='ok':

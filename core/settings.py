@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['*']
 
 # Add here your deployment HOSTS
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'https://adminlte-django.demo.community.intersystems.com']
-
 _ = os.environ.get('CSRF_TRUSTED_ORIGINS')
 if _:
     CSRF_TRUSTED_ORIGINS.append(_)
@@ -69,6 +68,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -149,14 +149,29 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
+# LANGUAGE_CODE = 'ru'  # язык сайта по умолчанию # https://vivazzi.pro/ru/it/translate-django/
+#LANGUAGE_CODE = 'en-US' # de-DE ru-RU
+LANGUAGE_CODE = 'en'
+TIME_ZONE = 'UTC'
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+# https://egorovegor.ru/django-multiple-language-support/
+LANGUAGE_SESSION_KEY = 'session_language_appname'
+LANGUAGE_COOKIE_NAME = 'cookie_language_appname' 
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    ('de', 'Deutsch'),
+)
+
+# месторасположение файлов перевода
+LOCALE_PATHS = (
+    'locale',
+    # os.path.join(PROJECT_DIR, 'locale'),
+)
 
 
 # Static files (CSS, JavaScript, Images)
