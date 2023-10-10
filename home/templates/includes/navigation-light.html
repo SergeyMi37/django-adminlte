@@ -8,30 +8,27 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% url 'dashboardv3' %}" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{% url 'dashboardv3' %}" class="nav-link">{% trans 'Home' %}</a>
       </li>
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{% url 'admin:password_change' %}" class="nav-link">Change Password</a>
+            <a href="{% url 'admin:password_change' %}" class="nav-link">{% trans 'Change Password' %}</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{% url 'admin:logout' %}" class="nav-link">Logout</a>
+            <a href="{% url 'admin:logout' %}" class="nav-link">{% trans 'Logout' %}</a>
           </li>
         {% else %}
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{% url 'password_change' %}" class="nav-link">Change Password</a>
+            <a href="{% url 'password_change' %}" class="nav-link">{% trans 'Change Password' %}</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            <a href="{% url 'logout' %}" class="nav-link">{% trans 'Logout' %}</a>
           </li>
         {% endif %}
       {% else %}
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+          <a href="{% url 'login' %}" class="nav-link">{% trans 'Sign In' %}</a>
         </li>
       {% endif %}
     </ul>
@@ -46,7 +43,7 @@
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -91,12 +88,12 @@
       <!-- Logon- Logout -->
       {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" title="Logout" href="{% url 'logout' %}" role="button">
+          <a class="nav-link" title="{% trans 'Logout' %}" href="{% url 'logout' %}" role="button">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" title="Login" href="{% url 'login' %}" role="button">
+          <a class="nav-link" title="{% trans 'Login' %}" href="{% url 'login' %}" role="button">
             <i class="fas fa-sign-in-alt"></i>
           </a>
       {% endif %}

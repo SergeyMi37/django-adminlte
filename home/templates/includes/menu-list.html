@@ -45,7 +45,7 @@
         <a href="#" class="nav-link {% if 'dashboard' in parent %} active {% endif %}">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
-            Dashboard
+           Utilites
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -53,14 +53,14 @@
           <li class="nav-item">
             <a href="{% url 'admin:index' %}" class="nav-link {% if 'index' in segment %} active {% endif %}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard v1</p>
+              <p> Перевод </p>
             </a>
           </li>
         </ul>
       </li>
     {% endif %}
 
-    {% if not request.user.is_superuser %}
+    {% if request.user.username == 'developer' %}
       <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
         <a href="#" class="nav-link {% if 'dashboard' in parent %} active {% endif %}">
           <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -73,7 +73,7 @@
           <li class="nav-item">
             <a href="/" class="nav-link {% if 'dashboardv1' in segment %} active {% endif %}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard v1</p>
+              <p> Dashboard v1 for user {{request.user}} --- username {{request.user.username}}</p>
             </a>
           </li>
           <li class="nav-item">
@@ -92,7 +92,7 @@
       </li>
     {% endif %}
 
-    {% if request.user.is_authenticated and not request.user.is_superuser %}
+    {% if request.user.is_authenticated and request.user.username == 'developer' %}
     <li class="nav-item">
       <a href="{% url 'widgets' %}" class="nav-link {% if 'widgets' in segment %}active{% endif %}">
         <i class="nav-icon fas fa-th"></i>

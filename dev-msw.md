@@ -28,10 +28,10 @@ python manage.py dumpdata --exclude auth.permission --exclude auth.user --exclud
 # https://vivazzi.pro/ru/it/translate-django/
 # https://egorovegor.ru/django-multiple-language-support/
 mkdir locale
-django-admin makemessages -l ru -i dtb_venv -i src
-django-admin makemessages -l en -i dtb_venv -i src
-django-admin makemessages -a -i dtb_venv -i src # update
-django-admin compilemessages -i dtb_venv -i src
+django-admin makemessages -l ru -i env -i src
+django-admin makemessages -l en -i env -i src
+django-admin makemessages -a -i env -i src # update
+django-admin compilemessages -i env -i src
 
 python manage.py collectstatic 
 # 
