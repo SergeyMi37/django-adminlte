@@ -5,6 +5,11 @@ from appmsw.iris import classMethod, classMethodFooter, classMethodPortal
 from appmsw.models import Param
 from functools import lru_cache
 
+def get_sidemenu(context):
+    print("===",context)
+    _r={}
+    return _r
+
 def get_param(par_name="",par_name_return="Desc",json_key=""):
     #params = Param.objects.all()
     #param = Param.objects.get(pk=id)
@@ -16,6 +21,7 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
         if par_name_return=="json" and json_key:
             _j=json.loads(_e)
             _e=_j.get(json_key,"")
+            return _e
     #print(param)
     return _e
 
@@ -63,6 +69,8 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
                 return _i['instance'].split("*")[1]
             elif name=="iris_host":
                 return _i['host']
+            elif name=="iris":
+                return _i
         except Exception as err:
             print("---err-classMethod--------",err)
             _i = f'{{"status":"Error get_env_appmsw {err} for :{name}"}}'

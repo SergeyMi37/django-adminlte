@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 21:15+0300\n"
+"POT-Creation-Date: 2023-10-11 08:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: .\appmsw\forms.py:14
 msgid "name-param"
 msgstr "имя-параметра"
@@ -77,46 +78,45 @@ msgid "Log in"
 msgstr "Войти"
 
 #: .\home\templates\registration\logged_out.html:15
-#: .\home\templates\registration\logged_out.html:32
+#: .\home\templates\registration\logged_out.html:36
 msgid "Thanks for spending some quality time with the Web site today."
-msgstr ""
+msgstr "Спасибо, что провели сегодня время с пользой"
 
 #: .\home\templates\registration\logged_out.html:19
+#: .\home\templates\registration\logged_out.html:22
 msgid "Log in again"
-msgstr ""
+msgstr "Войти снова"
 
 #: .\home\templates\registration\password_change_done.html:16
 msgid "Documentation"
-msgstr ""
+msgstr "Документация"
 
 #: .\home\templates\registration\password_change_done.html:19
 msgid "Change password"
-msgstr ""
+msgstr "Изменить пароль"
 
 #: .\home\templates\registration\password_change_done.html:20
 msgid "Log out"
-msgstr ""
+msgstr "Выйти"
 
 #: .\home\templates\registration\password_change_done.html:37
 #: .\home\templates\registration\password_change_form.html:26
 msgid "Password change"
-msgstr ""
+msgstr "Пароль изменить"
 
 #: .\home\templates\registration\password_change_done.html:51
 #: .\home\templates\registration\password_change_done.html:65
 msgid "Your password was changed."
-msgstr ""
+msgstr "Ваш пароль изменен"
 
 #: .\home\templates\registration\password_change_form.html:41
-msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
-msgstr ""
+msgid "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly."
+msgstr "В целях безопасности введите свой старый пароль, а затем дважды введите новый пароль, чтобы мы могли убедиться, что вы его ввели правильно."
 
 #: .\home\templates\registration\password_change_form.html:72
 msgid "Change my password"
-msgstr ""
+msgstr "Изменить мой пароль"
 
 #: .\home\templates\registration\password_change_form.html:86
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Пожалуйста, исправьте ошибки ниже."

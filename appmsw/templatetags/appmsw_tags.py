@@ -1,6 +1,12 @@
 from django import template
 register = template.Library()
-from appmsw.utl import get_env_appmsw
+from appmsw.utl import get_env_appmsw, get_sidemenu
+
+assignment_tag = register.assignment_tag if hasattr(register, 'assignment_tag') else register.simple_tag
+
+@assignment_tag(takes_context=True)
+def get_side_menu(context):
+    return get_sidemenu(context)
 
 # Create your views here.
 @register.simple_tag
