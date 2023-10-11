@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 08:16+0300\n"
+"POT-Creation-Date: 2023-10-11 18:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,7 @@ msgid "Passwords do not match or are empty"
 msgstr ""
 
 #: .\home\templates\includes\navigation-light.html:11
+#: .\home\templates\registration\logged_out.html:19
 msgid "Home"
 msgstr ""
 
@@ -71,41 +72,56 @@ msgstr ""
 msgid "password_change"
 msgstr ""
 
+#: .\home\templates\pages\index.html:64
+msgid "Custom title"
+msgstr "Benutzerdefinierter Titel"
+
+#: .\home\templates\pages\index.html:79
+msgid "Custom Icon"
+msgstr "Benutzerdefiniertes Symbol"
+
+#: .\home\templates\pages\index.html:94
+msgid "Custom footer"
+msgstr "Benutzerdefinierte Fußzeile"
+
+#: .\home\templates\pages\index.html:194
+msgid "Select items from the side menu"
+msgstr "Wählen Sie Elemente aus dem Seitenmenü aus"
+
 #: .\home\templates\registration\logged_out.html:14
 msgid "Log in"
-msgstr ""
+msgstr "Anmeldung"
 
 #: .\home\templates\registration\logged_out.html:15
-#: .\home\templates\registration\logged_out.html:36
+#: .\home\templates\registration\logged_out.html:34
 msgid "Thanks for spending some quality time with the Web site today."
 msgstr ""
 
-#: .\home\templates\registration\logged_out.html:19
-#: .\home\templates\registration\logged_out.html:22
+#: .\home\templates\registration\logged_out.html:20
 msgid "Log in again"
-msgstr ""
+msgstr "Nochmal anmelden"
 
 #: .\home\templates\registration\password_change_done.html:16
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: .\home\templates\registration\password_change_done.html:19
 msgid "Change password"
-msgstr ""
+msgstr "Kennwort ändern"
 
 #: .\home\templates\registration\password_change_done.html:20
 msgid "Log out"
-msgstr ""
+msgstr "Ausloggen"
 
 #: .\home\templates\registration\password_change_done.html:37
 #: .\home\templates\registration\password_change_form.html:26
 msgid "Password change"
-msgstr ""
+msgstr "Passwortänderung"
 
 #: .\home\templates\registration\password_change_done.html:51
 #: .\home\templates\registration\password_change_done.html:65
 msgid "Your password was changed."
-msgstr ""
+msgstr "Dein Passwort wurde geändert."
 
 #: .\home\templates\registration\password_change_form.html:41
 msgid ""

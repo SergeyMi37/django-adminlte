@@ -66,7 +66,7 @@
               <div class="icon">
                 <i class="fas fa-hand-point-left"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" data-toggle="modal" data-target="#modal-info" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -81,7 +81,7 @@
               <div class="icon">
                 <i class="fab fa-connectdevelop"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer" data-toggle="modal" data-target="#modal-success" >More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -96,7 +96,7 @@
               <div class="icon">
                 <i class="fas fa-download"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer" data-toggle="modal" data-target="#modal-warning" >More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -111,7 +111,7 @@
               <div class="icon">
                 <i class="fab fa-pagelines"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#"  data-toggle="modal" data-target="#modal-danger"   class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -191,7 +191,11 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-            <p><i class="fas fa-hand-point-left"></i> {% trans 'Select items from the side menu' %}</p>
+            {% if request.user.is_authenticated %}
+            <i class="fas fa-hand-point-left"></i> {% trans 'Select items from the side menu' %}
+            {% else %}
+            Please <a href="/accounts/login/" class="small-box-footer">{% trans 'Sign IN' %}</a> or <a href="/accounts/register/" class="small-box-footer">{% trans 'Sign UP' %}</a>
+            {% endif %} 
           </section>
           <!-- right col -->
         </div>
@@ -200,6 +204,127 @@
     </section>
     <!-- /.content -->
   </div>
+
+  <div class="modal fade" id="modal-danger">
+    <div class="modal-dialog">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="modal-title">Danger Modal</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-light">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modal-info">
+    <div class="modal-dialog">
+      <div class="modal-content bg-info">
+        <div class="modal-header">
+          <h4 class="modal-title">{{app_title}}l</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            In the .env file add a variable
+            <b>APPMSW_LOGO_TITLE=HpTitle</b>
+          </p>
+            <p>
+            Load the function module in the template
+            <b><span>{</span><span>%</span> load appmsw_tags <span>%</span><span>}</span></b>
+          </p>
+            <p>
+            Define an alias
+            <b><span>{</span><span>%</span> appmsw_tags_get_env 'title' as app_title <span>%</span><span>}</span></b>
+          </p><p>
+            And call the value of the variable
+            <b><span>{</span><span>{</span> app_title <span>}</span><span>}</span></b>
+          </p>
+  
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-light">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <div class="modal fade" id="modal-warning">
+    <div class="modal-dialog">
+      <div class="modal-content bg-warning">
+        <div class="modal-header">
+          <h4 class="modal-title">{{ app_footer }}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+          In the .env file add a variable
+          <b>APPMSW_LOGO_FOOTER=HpFooter</b>
+        </p>
+          <p>
+          Load the function module in the template
+          <b><span>{</span><span>%</span> load appmsw_tags <span>%</span><span>}</span></b>
+        </p>
+          <p>
+          Define an alias
+          <b><span>{</span><span>%</span> appmsw_tags_get_env 'footer' as app_footer <span>%</span><span>}</span></b>
+        </p><p>
+          And call the value of the variable
+          <b><span>{</span><span>{</span> app_footer <span>}</span><span>}</span></b>
+        </p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modal-success">
+    <div class="modal-dialog">
+      <div class="modal-content bg-success">
+        <div class="modal-header">
+          <h4 class="modal-title">Icon <img src="{{ app_icon }}" class="brand-image img-circle elevation-3"  style="opacity: .8" /> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <code>'<img src="{{ app_icon }}" class="brand-image img-circle elevation-3"  style="opacity: .8" />'</code>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-outline-light">Save changes</button>-->
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
   {% endblock content %}
 
   {% block extra_scripts %}

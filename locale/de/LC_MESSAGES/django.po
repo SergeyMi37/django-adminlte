@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 08:16+0300\n"
+"POT-Creation-Date: 2023-10-11 18:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,7 @@ msgid "Passwords do not match or are empty"
 msgstr ""
 
 #: .\home\templates\includes\navigation-light.html:11
+#: .\home\templates\registration\logged_out.html:19
 msgid "Home"
 msgstr ""
 
@@ -71,17 +72,32 @@ msgstr ""
 msgid "password_change"
 msgstr ""
 
+#: .\home\templates\pages\index.html:64
+msgid "Custom title"
+msgstr ""
+
+#: .\home\templates\pages\index.html:79
+msgid "Custom Icon"
+msgstr ""
+
+#: .\home\templates\pages\index.html:94
+msgid "Custom footer"
+msgstr ""
+
+#: .\home\templates\pages\index.html:194
+msgid "Select items from the side menu"
+msgstr ""
+
 #: .\home\templates\registration\logged_out.html:14
 msgid "Log in"
 msgstr ""
 
 #: .\home\templates\registration\logged_out.html:15
-#: .\home\templates\registration\logged_out.html:36
+#: .\home\templates\registration\logged_out.html:34
 msgid "Thanks for spending some quality time with the Web site today."
 msgstr ""
 
-#: .\home\templates\registration\logged_out.html:19
-#: .\home\templates\registration\logged_out.html:22
+#: .\home\templates\registration\logged_out.html:20
 msgid "Log in again"
 msgstr ""
 
