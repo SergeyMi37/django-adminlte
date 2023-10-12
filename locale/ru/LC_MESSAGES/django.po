@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 18:35+0300\n"
+"POT-Creation-Date: 2023-10-12 14:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr "Изменить пароль"
 
 #: .\home\templates\includes\navigation-light.html:19
 #: .\home\templates\includes\navigation-light.html:26
-#: .\home\templates\includes\navigation-light.html:91
+#: .\home\templates\includes\navigation-light.html:149
 msgid "Logout"
 msgstr "Выйти"
 
@@ -57,12 +57,12 @@ msgstr "Войти"
 msgid "Search"
 msgstr "Искать"
 
-#: .\home\templates\includes\navigation-light.html:96
+#: .\home\templates\includes\navigation-light.html:154
 #: .\home\templates\includes\sidebar.html:26
 msgid "Login"
 msgstr "Войти"
 
-#: .\home\templates\includes\navigation-light.html:113
+#: .\home\templates\includes\navigation-light.html:171
 msgid "Change"
 msgstr "Изменить"
 
@@ -78,6 +78,11 @@ msgstr "Смена пароля"
 msgid "Custom title"
 msgstr "Пользовательский заголовок"
 
+#: .\home\templates\pages\index.html:69 .\home\templates\pages\index.html:84
+#: .\home\templates\pages\index.html:99 .\home\templates\pages\index.html:114
+msgid "More info"
+msgstr "Больше информации"
+
 #: .\home\templates\pages\index.html:79
 msgid "Custom Icon"
 msgstr "Пользовательская картинка"
@@ -86,9 +91,25 @@ msgstr "Пользовательская картинка"
 msgid "Custom footer"
 msgstr "Пользовательский нижний колонтитул"
 
-#: .\home\templates\pages\index.html:194
+#: .\home\templates\pages\index.html:195
 msgid "Select items from the side menu"
 msgstr "Выбор элементов в боковом меню"
+
+#: .\home\templates\pages\index.html:197 .\home\templates\pages\index.html:247
+#: .\home\templates\pages\index.html:289 .\home\templates\pages\index.html:330
+#: .\home\templates\pages\index.html:372
+#, fuzzy
+#| msgid "Sign In"
+msgid "Sign IN"
+msgstr "Войти"
+
+#: .\home\templates\pages\index.html:197 .\home\templates\pages\index.html:248
+#: .\home\templates\pages\index.html:289 .\home\templates\pages\index.html:330
+#: .\home\templates\pages\index.html:372
+#, fuzzy
+#| msgid "Sign In"
+msgid "Sign UP"
+msgstr "Войти"
 
 #: .\home\templates\registration\logged_out.html:14
 msgid "Log in"

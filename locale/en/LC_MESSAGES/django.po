@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 18:35+0300\n"
+"POT-Creation-Date: 2023-10-12 14:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: .\home\templates\includes\navigation-light.html:19
 #: .\home\templates\includes\navigation-light.html:26
-#: .\home\templates\includes\navigation-light.html:91
+#: .\home\templates\includes\navigation-light.html:149
 msgid "Logout"
 msgstr ""
 
@@ -55,12 +55,12 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: .\home\templates\includes\navigation-light.html:96
+#: .\home\templates\includes\navigation-light.html:154
 #: .\home\templates\includes\sidebar.html:26
 msgid "Login"
 msgstr ""
 
-#: .\home\templates\includes\navigation-light.html:113
+#: .\home\templates\includes\navigation-light.html:171
 msgid "Change"
 msgstr ""
 
@@ -74,23 +74,40 @@ msgstr ""
 
 #: .\home\templates\pages\index.html:64
 msgid "Custom title"
-msgstr "Benutzerdefinierter Titel"
+msgstr ""
+
+#: .\home\templates\pages\index.html:69 .\home\templates\pages\index.html:84
+#: .\home\templates\pages\index.html:99 .\home\templates\pages\index.html:114
+msgid "More info"
+msgstr ""
 
 #: .\home\templates\pages\index.html:79
 msgid "Custom Icon"
-msgstr "Benutzerdefiniertes Symbol"
+msgstr ""
 
 #: .\home\templates\pages\index.html:94
 msgid "Custom footer"
-msgstr "Benutzerdefinierte Fußzeile"
+msgstr ""
 
-#: .\home\templates\pages\index.html:194
+#: .\home\templates\pages\index.html:195
 msgid "Select items from the side menu"
-msgstr "Wählen Sie Elemente aus dem Seitenmenü aus"
+msgstr ""
+
+#: .\home\templates\pages\index.html:197 .\home\templates\pages\index.html:247
+#: .\home\templates\pages\index.html:289 .\home\templates\pages\index.html:330
+#: .\home\templates\pages\index.html:372
+msgid "Sign IN"
+msgstr ""
+
+#: .\home\templates\pages\index.html:197 .\home\templates\pages\index.html:248
+#: .\home\templates\pages\index.html:289 .\home\templates\pages\index.html:330
+#: .\home\templates\pages\index.html:372
+msgid "Sign UP"
+msgstr ""
 
 #: .\home\templates\registration\logged_out.html:14
 msgid "Log in"
-msgstr "Anmeldung"
+msgstr ""
 
 #: .\home\templates\registration\logged_out.html:15
 #: .\home\templates\registration\logged_out.html:34
@@ -99,24 +116,24 @@ msgstr ""
 
 #: .\home\templates\registration\logged_out.html:20
 msgid "Log in again"
-msgstr "Nochmal anmelden"
+msgstr ""
 
 #: .\home\templates\registration\password_change_done.html:16
 msgid "Documentation"
-msgstr "Dokumentation"
+msgstr ""
 
 #: .\home\templates\registration\password_change_done.html:19
 msgid "Change password"
-msgstr "Kennwort ändern"
+msgstr ""
 
 #: .\home\templates\registration\password_change_done.html:20
 msgid "Log out"
-msgstr "Ausloggen"
+msgstr ""
 
 #: .\home\templates\registration\password_change_done.html:37
 #: .\home\templates\registration\password_change_form.html:26
 msgid "Password change"
-msgstr "Passwortänderung"
+msgstr ""
 
 #: .\home\templates\registration\password_change_done.html:51
 #: .\home\templates\registration\password_change_done.html:65

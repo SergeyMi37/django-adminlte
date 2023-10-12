@@ -6,9 +6,13 @@ from appmsw.models import Param
 from functools import lru_cache
 
 def get_sidemenu(context):
-    print("===",context)
-    _r={}
-    return _r
+    _js={}
+    _pn=os.environ.get("APPMSW_PARAM_NANE")
+    print("---",_pn)
+    if _pn:
+         _js = get_param(par_name=_pn,par_name_return="json")
+    print("===",type(_js),_js.get("SideMenu",""))
+    return _js.get("SideMenu","")
 
 def get_param(par_name="",par_name_return="Desc",json_key=""):
     #params = Param.objects.all()
@@ -18,10 +22,19 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
     for e in param:
         #print(type(e))
         _e=getattr(e, par_name_return)
-        if par_name_return=="json" and json_key:
-            _j=json.loads(_e)
-            _e=_j.get(json_key,"")
-            return _e
+        if par_name_return=="json":
+            if json_key:
+                try:
+                    _j=json.loads(_e)
+                    _e=_j.get(json_key,"")
+                    return _e
+                except:
+                    return ""
+            else:
+                try:
+                    return json.loads(_e)
+                except:
+                    return ""
     #print(param)
     return _e
 

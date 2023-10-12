@@ -1,4 +1,4 @@
-{% load i18n static admin_adminlte %}
+{% load i18n static admin_adminlte appmsw_tags %}
 
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <!-- Add icons to the links using the .nav-icon class
@@ -40,59 +40,75 @@
     {% endfor %}
     {% endif %}
 
-    {% if request.user.is_superuser %}
-      <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
-        <a href="#" class="nav-link {% if 'dashboard' in parent %} active {% endif %}">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard 
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{% url 'admin:index' %}" class="nav-link {% if 'index' in segment %} active {% endif %}">
-              <i class="far fa-circle nav-icon"></i>
-              <p> Dashboard v1</p>
-            </a>
-          </li>
-        </ul>
-      </li>
+    <!-- SideMenu from  -->
+    {% get_side_menu as app_list %}
+    {% if app_list %}
+    {% for app in app_list %}
+    {% if app.has_perms and not app.pinned %}
+    <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
+      <a class="nav-link {% if app_label != app.label and app.url not in request.path|urlencode  %} collapsed{% endif %}"
+        data-bs-toggle="collapse" data-bs-target="#submenu-{{ app.app_label }}" href="{{ app.url }}">
+        <i class="nav-icon {{ app.icon }}"></i>
+        <p>
+          {{ app.label|slice:10 }}{% if app.label|length > 10 %}..{% endif %}
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+
+      {% if app.models %}
+      <ul class="nav nav-treeview">
+        {% for model in app.models %}
+        {% if model.url %}
+        <li class="nav-item">
+          <a class="nav-link {% if 'bootstrap-tables' in segment or model.url in request.path|urlencode %} active {% endif %}"
+            href="{{ model.url }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>{{ model.label }}</p>
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">{{ model.label }}</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
     {% endif %}
 
-    {% if not request.user.is_superuser %}
-      <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
-        <a href="#" class="nav-link {% if 'dashboard' in parent %} active {% endif %}">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="/" class="nav-link {% if 'dashboardv1' in segment %} active {% endif %}">
-              <i class="far fa-circle nav-icon"></i>
-              <p> Dashboard v1 for user {{request.user}} --- username {{request.user.username}}</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'dashboardv2' %}" class="nav-link {% if 'dashboardv2' in segment %} active {% endif %}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard v2</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'dashboardv3' %}" class="nav-link {% if 'dashboardv3' in segment %} active {% endif %}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard v3</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-    {% endif %}
 
-    {% if request.user.is_authenticated and request.user.username == 'developer' %}
+    <!-- Demo for Developers -->
+     {% if request.user.is_authenticated and request.user.username == 'developer' %}
+    <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
+      <a href="#" class="nav-link {% if 'dashboard' in parent %} active {% endif %}">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+          Dashboards
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/" class="nav-link {% if 'dashboardv1' in segment %} active {% endif %}">
+            <i class="far fa-circle nav-icon"></i>
+            <p> Dashboard v1 for user {{request.user}} --- username {{request.user.username}}</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'dashboardv2' %}" class="nav-link {% if 'dashboardv2' in segment %} active {% endif %}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Dashboard v2</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'dashboardv3' %}" class="nav-link {% if 'dashboardv3' in segment %} active {% endif %}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Dashboard v3</p>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="nav-item">
       <a href="{% url 'widgets' %}" class="nav-link {% if 'widgets' in segment %}active{% endif %}">
         <i class="nav-icon fas fa-th"></i>
@@ -696,8 +712,7 @@
         <p>Informational</p>
       </a>
     </li>
-    {% endif %}
- <!--
+
     {% if request.user.is_authenticated %}
     <li class="nav-item">
       <a href="{% url 'logout' %}" class="nav-link">
@@ -726,5 +741,5 @@
         <p>Support</p>
       </a>
     </li>         
-  -->
+   {% endif %}
   </ul>
