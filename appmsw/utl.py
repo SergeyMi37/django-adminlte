@@ -18,7 +18,7 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
     #params = Param.objects.all()
     #param = Param.objects.get(pk=id)
     param = Param.objects.filter(name=par_name)
-    _e=""
+    _e={}
     for e in param:
         #print(type(e))
         _e=getattr(e, par_name_return)
@@ -26,15 +26,15 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
             if json_key:
                 try:
                     _j=json.loads(_e)
-                    _e=_j.get(json_key,"")
+                    _e=_j.get(json_key,{})
                     return _e
                 except:
-                    return ""
+                    return {}
             else:
                 try:
                     return json.loads(_e)
                 except:
-                    return ""
+                    return {}
     #print(param)
     return _e
 
@@ -56,6 +56,8 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
  
     if name=="": 
         return _e
+    elif name=="param-name":
+        return _e["APPMSW_PARAM_NANE"]
     elif name=="param":
         if fieldname:
             return get_param(par_name=fieldname,par_name_return=name_return,json_key=jsonkey)
