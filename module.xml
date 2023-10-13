@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+  <Document name="appmsw-django-adminlte.ZPM">
+    <Module>
+      <Name>apptools-django</Name>
+      <Version>1.2.5</Version>
+      <Description>Application tools for technical support and DBMS administrator use Django AdminLte</Description>
+      <Packaging>module</Packaging>
+  <Keywords>Application tools AdminLTE </Keywords>
+<Author>
+<Person>Mikhaylenko Sergey</Person>
+<CopyrightDate>2023</CopyrightDate>
+<License>MIT</License>
+<Notes>
+repository:
+https://github.com/SergeyMi37/django-adminlte
+description:
+Application tools for technical support and DBMS administrator use Django AdminLTE
+</Notes>
+</Author>
+	<SourcesRoot>src</SourcesRoot>
+	<Invokes>
+	<Invoke Class="apptools.core.Installer" Method="AddFavorites" Phase="Activate" When="After" ></Invoke>
+        </Invokes>
+	<Resource Name="apptools.core.PKG"/>
+	<Resource Name="apptools.core.INC"/>
+        <Resource Name="apptools.Chart.PKG"/>
+        <Resource Name="apptools.Form.PKG"/>
+        <Resource Name="apptools.lte.PKG"/>
+	<Resource Name="apptools.Tabs.PKG"/>
+	<Resource Name="apptools.python.PKG"/>
+        <Resource Name="apptools.Uikit.PKG"/>
+        <Resource Name="apptools.util.PKG"/>
+	<Resource Name="appcachemsg.GBL"/>
+<CSPApplication 
+            SourcePath="/src/csp"
+            DeployPath="${cspdir}/apptools"
+            Url="/apptools" 
+            ServeFiles="1"
+            CookiePath="/apptools/"
+            PasswordAuthEnabled="1"
+            AuthenticationMethods="32" 
+            MatchRoles=":%ALL"
+            Recurse="1"/>
+<CSPApplication
+            Url="/apptoolsrest"
+            CookiePath="/apptools/"
+            PasswordAuthEnabled="1"
+            AuthenticationMethods="32" 
+            MatchRoles=":%ALL"
+            DispatchClass="apptools.core.rest"
+	    Path="${cspdir}/apptools"
+	    Recurse="1"
+	    UnauthenticatedEnabled="0"
+	    Generated="true"/>  
+<AfterInstallMessage>
+ You can load admins panel at:
+&#13; ${webroot}apptoolsrest/a/info
+</AfterInstallMessage>
+</Module>
+</Document>
+</Export>
