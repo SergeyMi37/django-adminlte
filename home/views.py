@@ -21,7 +21,7 @@ def set_language(request):
 
 def utility(request):
     context = {
-       # "appmsw": get_env_appmsw(request),
+       "mode": request.GET.get('mode'),
     }
     # Page from the theme 
     return render(request, 'pages/utility.html',context)

@@ -9,10 +9,10 @@ from django.core import serializers
 def get_sidemenu(context):
     _js={}
     _pn=os.environ.get("APPMSW_PARAM_NANE")
-    print("---",_pn)
+    #print("---",_pn)
     if _pn:
          _js = get_param(par_name=_pn,par_name_return="json")
-    print("===",type(_js),_js.get("SideMenu",""))
+    #print("===",type(_js),_js.get("SideMenu",""))
     return _js.get("SideMenu","")
 
 def get_param(par_name="",par_name_return="Desc",json_key=""):

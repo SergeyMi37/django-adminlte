@@ -23,7 +23,7 @@ python manage.py makemigrations && python manage.py migrate && python manage.py 
 # https://realpython.com/django-pytest-fixtures/#fixtures-in-django
 python manage.py dumpdata --exclude auth.permission --exclude contenttypes --indent 2 > db-all.json
 python manage.py loaddata db-all.json
-python manage.py dumpdata --exclude auth.permission --exclude auth.user --exclude contenttypes --exclude users.user --exclude admin.logentry --exclude sessions.session --indent 2 > db-test.json
+python manage.py dumpdata --exclude auth.permission --exclude auth.user --exclude contenttypes --exclude auth.group --exclude admin.logentry --exclude sessions.session --indent 2 > db-init-param.json
 
 # https://vivazzi.pro/ru/it/translate-django/
 # https://egorovegor.ru/django-multiple-language-support/
