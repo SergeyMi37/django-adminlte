@@ -40,15 +40,16 @@
     {% endfor %}
     {% endif %}
 
-    <!-- SideMenu from  -->
+    <!-- Custom SideMenu from  -->
     {% get_side_menu as app_list %}
     {% if app_list %}
     {% for app in app_list %}
-    {% if app.has_perms and not app.pinned %}
-    <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
+      <!-- TODO Check access rights for group membership -->
+     <li class="nav-item {% if 'dashboard' in parent %} menu-open {% endif %}">
       <a class="nav-link {% if app_label != app.label and app.url not in request.path|urlencode  %} collapsed{% endif %}"
+        title="{{ app.title }}"
         data-bs-toggle="collapse" data-bs-target="#submenu-{{ app.app_label }}" href="{{ app.url }}">
-        <i class="nav-icon {{ app.icon }}"></i>
+        <i class="nav-icon {{ app.icon|default:'fas fa-box' }}"></i>
         <p>
           {{ app.label|slice:10 }}{% if app.label|length > 10 %}..{% endif %}
           <i class="right fas fa-angle-left"></i>
@@ -59,10 +60,12 @@
       <ul class="nav nav-treeview">
         {% for model in app.models %}
         {% if model.url %}
+        <!-- TODO Check access rights for group membership -->
         <li class="nav-item">
           <a class="nav-link {% if 'bootstrap-tables' in segment or model.url in request.path|urlencode %} active {% endif %}"
+            title="{{ model.title }}"
             href="{{ model.url }}">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="{{ model.icon|default:'fas fa-ellipsis-h' }} nav-icon"></i>
             <p>{{ model.label }}</p>
           </a>
         </li>
@@ -73,10 +76,9 @@
       </ul>
       {% endif %}
     </li>
-    {% endif %}
     {% endfor %}
     {% endif %}
-
+    <!-- ./Custom SideMenu from  -->
 
     <!-- Demo for Developers -->
      {% if request.user.is_authenticated and request.user.username == 'developer' %}
@@ -742,4 +744,5 @@
       </a>
     </li>         
    {% endif %}
+   <!-- ./Demo for Developers -->
   </ul>

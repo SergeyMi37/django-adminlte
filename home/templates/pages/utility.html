@@ -1,0 +1,156 @@
+{% extends 'layouts/base.html' %}
+{% load static appmsw_tags i18n admin_adminlte %}
+
+{% block title %}{% appmsw_tags_get_env 'title' %}{% endblock title %}
+
+{% block extrastyle %}
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+
+{% endblock extrastyle %}
+
+{% block bodyclass %} 
+  hold-transition sidebar-mini layout-fixed layout-footer-fixed dark-mode layout-navbar-fixed 
+{% endblock bodyclass %}
+
+{% block content %}
+{% appmsw_tags_get_env 'title'  as app_title %}
+{% appmsw_tags_get_env 'img'    as app_icon %}
+{% appmsw_tags_get_env 'footer' as app_footer %}
+{% appmsw_tags_get_env 'iris'   as app_iris %}
+{% appmsw_tags_get_env 'APPMSW_PARAM_NANE'   as app_param_name %}
+{% get_side_menu as custom_side_menu_list %}
+{% admin_get_menu as app_list %} 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">{{ mode }} </h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ mode }}</h3>
+
+                <p>{% trans 'Custom title' %}</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-hand-point-left"></i>
+              </div>
+              <a href="#" data-toggle="modal" data-target="#modal-info" class="appmsw-more-info small-box-footer">{% trans 'More info' %} <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <div class="modal fade" id="modal-info" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modal-danger" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="modal-title">{% trans 'Project variables' %}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        {% if request.user.is_authenticated %}
+        <p>
+          {% trans 'In the .env file add a variable' %}
+        </p>
+        <p>
+          <b>APPMSW_IRIS_URL=iris://superuser:SYS@iris:1972/USER</b>
+        </p>
+        
+         {% if request.user.is_superuser %}
+          <p>
+            {% trans 'Load the function module in the template' %}
+          <b><span>{</span><span>%</span> load appmsw_tags <span>%</span><span>}</span></b>
+        </p>
+          <p>
+            {% trans 'Define an alias' %}
+          <b><span>{</span><span>%</span> appmsw_tags_get_env 'iris' as app_iris <span>%</span><span>}</span></b>
+        </p><p>
+          {% trans 'And call the value of the variable' %}
+          <b><span>{</span><span>{</span> app_iris <span>}</span><span>}</span></b>
+        </p>
+          <p>
+          {{ app_iris }}
+          </p>
+          <p>
+           {% autoescape off %}
+            {% appmsw_tags_get_env "iris_footer" %}
+           {% endautoescape %}
+          </p>
+          <hr>
+          <p>APPMSW_LOGO_TITLE = <b>{{ app_title }}</b></p>  
+          <p>APPMSW_LOGO_FOOTER = <b>{{ app_footer }}</b></p>  
+          <p>APPMSW_LOGO_IMG = <b>{{ app_icon }}</b></p>  
+            {% appmsw_tags_get_env 'APPMSW_IRIS_URL'  as app_iris_url %}
+          <p>APPMSW_IRIS_URL = <b>{{ app_iris_url }}</b></p>  
+            {% appmsw_tags_get_env 'APPMSW_Trans_RapidAPI_HostKey'   as app_var %}
+          <p>APPMSW_Trans_RapidAPI_HostKey = <b>{{ app_var }}</b></p>  
+          <p>IRIS host: <b>{{ app_iris.host }}</b></p>
+          <p>IRIS instance:{{ app_iris.instance }}</p>
+          <p>iris: <b>{{ app_iris }}</b></p>
+          <p>system_menu: <b>{{ app_list }}</b></p>
+          <p>custom_side_menu: <b>{{ custom_side_menu_list }}</b></p>
+          
+          <hr>
+          <p>APPMSW_PARAM_NANE = <b>{{ app_param_name }}</b></p>  
+          {% trans 'This parameter node will override all explicitly specified variables' %}
+          {% appmsw_tags_get_env 'param_name_all'   as app_var %}
+          <p>{% trans 'Param node all fields' %}: <b>{{ app_var }}</b></p>  
+                    
+          {% endif %} 
+          {% else %}
+            Please <a href="/accounts/login/" data-toggle="tooltip" data-placement="top" title="Login" >{% trans 'Sign IN' %}</a> or 
+            <a title="register" href="/accounts/register/" class="small-box-footer">{% trans 'Sign UP' %}</a>
+          {% endif %} 
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+ 
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+  {% endblock content %}
+
+  {% block extra_scripts %}
+  {% endblock extra_scripts %}
+

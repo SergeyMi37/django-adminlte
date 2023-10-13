@@ -18,3 +18,10 @@ def set_language(request):
     response = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     response.set_cookie(core.settings.LANGUAGE_COOKIE_NAME, lang)
     return response
+
+def utility(request):
+    context = {
+       # "appmsw": get_env_appmsw(request),
+    }
+    # Page from the theme 
+    return render(request, 'pages/utility.html',context)

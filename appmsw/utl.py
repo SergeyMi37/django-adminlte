@@ -4,6 +4,7 @@ import json
 from appmsw.iris import classMethod, classMethodFooter, classMethodPortal
 from appmsw.models import Param
 from functools import lru_cache
+from django.core import serializers
 
 def get_sidemenu(context):
     _js={}
@@ -40,6 +41,8 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
 
 @lru_cache()
 def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
+    if name.find("APPMSW_")>-1:
+        return str(os.environ.get(name))
     _e={}
     _e["APPMSW_PARAM_NANE"]=os.environ.get("APPMSW_PARAM_NANE")
     _e["APPMSW_LOGO_TITLE"]=os.environ.get("APPMSW_LOGO_TITLE")
@@ -56,8 +59,10 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
  
     if name=="": 
         return _e
-    elif name=="param-name":
-        return _e["APPMSW_PARAM_NANE"]
+    elif name=="param_name_all":
+        param = Param.objects.filter(name=_e["APPMSW_PARAM_NANE"])
+        data = serializers.serialize("json", param)
+        return data
     elif name=="param":
         if fieldname:
             return get_param(par_name=fieldname,par_name_return=name_return,json_key=jsonkey)
@@ -67,7 +72,7 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
         return _e.get("APPMSW_LOGO_FOOTER","undef")
     elif name=="img" and _e["APPMSW_LOGO_IMG"]!="None":
         return _e.get("APPMSW_LOGO_IMG","undef")
-    
+
     if _e["APPMSW_IRIS_URL"]:
         _i = json.loads(classMethodFooter(request,url=_e["APPMSW_IRIS_URL"]))
         #print("===",_["APPMSW_IRIS_URL"],_i)
