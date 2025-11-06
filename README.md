@@ -35,7 +35,7 @@ $ cd django-adminlte
 > 👉 **Step 2** - Start the APP in `Docker`
 
 ```bash
-$ docker-compose up --build
+docker-compose up --build
 ```
 
 Visit `http://localhost:5085` in your browser. The app should be up & running.
@@ -47,8 +47,8 @@ Visit `http://localhost:5085` in your browser. The app should be up & running.
 > 👉 Download the code  
 
 ```bash
-$ git clone https://github.com/app-generator/django-adminlte.git
-$ cd django-adminlte
+git clone https://github.com/app-generator/django-adminlte.git
+cd django-adminlte
 ```
 
 <br />
@@ -56,10 +56,15 @@ $ cd django-adminlte
 > 👉 Install modules via `VENV`  
 
 ```bash
-$ virtualenv env
-$ source env/bin/activate
-$ source env/Scripts/activate # for Windows
-$ pip install -r requirements.txt
+# virtualenv env
+  # Linux/Mac
+python3 -m venv env-lin
+source env-lin/bin/activate
+  # Windows
+python -m venv env-win
+source env-win/Scripts/activate
+
+pip install -r requirements.txt
 ```
 
 <br />
@@ -67,8 +72,8 @@ $ pip install -r requirements.txt
 > 👉 Set Up Database
 
 ```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 <br />
@@ -76,7 +81,7 @@ $ python manage.py migrate
 > 👉 Create the Superuser
 
 ```bash
-$ python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 <br />
@@ -84,7 +89,7 @@ $ python manage.py createsuperuser
 > 👉 Start the app
 
 ```bash
-$ python manage.py runserver
+python manage.py runserver
 ```
 
 At this point, the app runs at `http://127.0.0.1:8000/`. 
