@@ -15,6 +15,7 @@ def appmsw_tags_get_env(name="", fieldname="",namereturn="",jsonkey=""):
     #if not name:
     #    return _.get(name,"???")
     # Page from the theme 
+    # print('---',name,_)
     return _
 
 # <p>Instance: {% piece iris_portal.instance delimiter="*" num=1 %}, dir: {% piece iris_portal.instance delimiter="*" num=0 %}

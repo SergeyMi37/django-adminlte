@@ -39,7 +39,7 @@ def get_param(par_name="",par_name_return="Desc",json_key=""):
     #print(param)
     return _e
 
-@lru_cache()
+@lru_cache() # Кэширование функции
 def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
     if name.find("APPMSW_")>-1:
         return str(os.environ.get(name))
@@ -75,12 +75,12 @@ def get_env_appmsw(request,name="",fieldname="",name_return="",jsonkey=""):
 
     if _e["APPMSW_IRIS_URL"]:
         _i = json.loads(classMethodFooter(request,url=_e["APPMSW_IRIS_URL"]))
-        #print("===",_["APPMSW_IRIS_URL"],_i)
+        # print("===",_e["APPMSW_IRIS_URL"],_i)
         try:
             if _i['status'] !='ok':
                 return _i['status']
             if name=="iris_footer":
-                #print(_i['apps'])
+                # print('===---',_i['apps'])
                 _irf=f"<span title='Iris Instance'>{_i['instance'].split('*')[1]}</span> <span title='Iris Host'>{_i['host']}</span>"
                 for enum in _i['apps']:
                     _irf+=f' | <a target="_blank" href="{ enum["url"] }">{ enum["name"] }</a>'
