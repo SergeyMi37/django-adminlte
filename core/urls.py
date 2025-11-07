@@ -5,11 +5,12 @@ from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 from rest_framework.routers import DefaultRouter
-from .views import ParamViewSet, CommentViewSet
+from .views import ParamViewSet, CommentViewSet, SysOptionViewSet
 
 router = DefaultRouter()
 router.register(r'params', ParamViewSet)
 router.register(r'comments', CommentViewSet)
+router.register(r'sysoptions', SysOptionViewSet)
 
 urlpatterns = [
     path('', include('home.urls')),

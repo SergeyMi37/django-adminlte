@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from appmsw.models import Param, Comment
+from appmsw.models import Param, Comment, SysOption
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -23,7 +23,16 @@ class ParamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Param
         fields = [
-            'id', 'name', 'category', 'desc', 'option', 
+            'id', 'name', 'category', 'desc', 'option',
             'json', 'creation_date', 'user', 'public', 'enabled', 'comments'
         ]
         read_only_fields = ['creation_date', 'user']
+
+class SysOptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SysOption
+        fields = [
+            'id', 'name', 'category', 'desc', 'option',
+            'json', 'creation_date', 'public', 'enabled'
+        ]
+        read_only_fields = ['creation_date']
